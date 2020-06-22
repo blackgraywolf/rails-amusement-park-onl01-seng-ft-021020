@@ -1,3 +1,4 @@
+require 'pry'
 class AttractionsController < ApplicationController
 
     def index 
@@ -7,7 +8,7 @@ class AttractionsController < ApplicationController
     end 
 
     def show 
-        # binding.pry
+        binding.pry
         @attraction = Attraction.find_by(id: params[:id])
         @ride = @attraction.rides.build(user_id: current_user.id)
         @user = current_user
